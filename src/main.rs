@@ -32,7 +32,7 @@ impl From<StkColor> for Color {
             StkColor::Yellow => AnsiColor::Yellow.into(),
             StkColor::Magenta => AnsiColor::Magenta.into(),
             StkColor::White => AnsiColor::White.into(),
-            StkColor::BrightBlue => AnsiColor::BrightBlack.into(),
+            StkColor::BrightBlue => AnsiColor::BrightBlue.into(),
             StkColor::BrightRed => AnsiColor::BrightRed.into(),
             StkColor::BrightGreen => AnsiColor::BrightGreen.into(),
             StkColor::BrightCyan => AnsiColor::BrightCyan.into(),
