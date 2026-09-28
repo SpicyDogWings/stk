@@ -19,6 +19,15 @@ O instalándolo en tu `PATH`:
 
     cargo install --path .
 
+O descargando el binario precompilado de una release (Linux, x86_64). Los tags
+son prereleases, así que se indica la versión explícita:
+
+    curl -fL -o ~/.local/bin/stk \
+      https://github.com/SpicyDogWings/stk/releases/download/v0.2.0-alpha/stk
+    chmod +x ~/.local/bin/stk
+
+Asegurate de tener `~/.local/bin` en tu `PATH`.
+
 ## Uso
 
     stk <TEXT>... [-f <COLOR>]
