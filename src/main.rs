@@ -18,6 +18,7 @@ struct TextArgs {
 
 #[derive(Subcommand, Debug)]
 enum Commands {
+    #[command(name = "log", about = "Imprimir los logs de tu script para debugar")]
     Log {
         #[command(flatten)]
         text: TextArgs,
@@ -49,7 +50,7 @@ fn main() {
             let color: Color = color.into();
             let now = OffsetDateTime::now_local().unwrap_or_else(|_| OffsetDateTime::now_utc());
             let time_fmt = format_description!("[hour]:[minute]:[second]");
-            let style = Style::new()  
+            let style = Style::new()
                 .fg_color(Some(StkColor::Black.into()))
                 .bg_color(Some(color.into()));
             let style2 = Style::new()
