@@ -60,10 +60,6 @@ fn main() {
         }
         None => {
             print_text_inline(args.text.text, args.foreground);
-            // let style = Style::new()
-            //     .fg_color(Some(args.foreground.into()))
-            //     .effects(Effects::BOLD);
-            // print!("{style}{}{style:#}", args.text.text.join(" "));
         }
     }
 }
