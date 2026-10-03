@@ -1,6 +1,6 @@
 # Tareas pendientes v0.3.0-alpha
 
-## Usar ratatui
+## - [ ] Usar ratatui
 
 Investigar sobre esta implementación de ratatui para crear ui inline
 
@@ -11,7 +11,7 @@ let mut terminal = Terminal::with_options(backend, TerminalOptions {
 })?;
 ```
 
-## Parametro bold opcional
+## - [ ] Parametro bold opcional
 
 Convertir el bold en un parametro opcional
 
@@ -20,3 +20,7 @@ let style = Style::new()
     .fg_color(Some(args.foreground.into()))
     .effects(Effects::BOLD); // opcional
 ```
+
+## - [ ] Agregar desc al comando log
+
+La descrición del comando sale vacia
