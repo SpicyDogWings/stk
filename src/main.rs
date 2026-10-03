@@ -1,15 +1,14 @@
 mod color;
+mod ui;
 
 use clap::{ Parser, Subcommand, Args as ClapArgs };
-use anstyle::{ Color, Effects, Style};
+use anstyle::{ Color, Style};
 use color::{ StkColor, ColorVariant };
 use time::{
     OffsetDateTime,
     macros::format_description
-
 };
-//use time::macros::format_description;
-
+use ui::print_text_inline;
 
 #[derive(ClapArgs, Debug)]
 struct TextArgs {
@@ -60,10 +59,11 @@ fn main() {
             print!("{style} {} {style:#} {style3}{}{style3:#} {style2}{}{style2:#}", variant.label(), now.format(time_fmt).unwrap(), text.text.join(" "));
         }
         None => {
-            let style = Style::new()
-                .fg_color(Some(args.foreground.into()))
-                .effects(Effects::BOLD);
-            print!("{style}{}{style:#}", args.text.text.join(" "));
+            print_text_inline(args.text.text, args.foreground);
+            // let style = Style::new()
+            //     .fg_color(Some(args.foreground.into()))
+            //     .effects(Effects::BOLD);
+            // print!("{style}{}{style:#}", args.text.text.join(" "));
         }
     }
 }
