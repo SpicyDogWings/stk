@@ -7,7 +7,7 @@ etiqueta y hora.
 ## Instalación rápida
 
     curl -fL -o ~/.local/bin/stk \
-      https://github.com/SpicyDogWings/stk/releases/download/v0.2.0-alpha/stk
+      https://github.com/SpicyDogWings/stk/releases/download/v0.2.1-alpha/stk
     chmod +x ~/.local/bin/stk
 
 Asegurate de tener `~/.local/bin` en tu `PATH`.
