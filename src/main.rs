@@ -14,6 +14,7 @@ struct TextArgs {
 
 #[derive(Subcommand, Debug)]
 enum Commands {
+    #[command(name = "log", about = "Imprimir los logs de tu script para debugar")]
     Log {
         #[command(flatten)]
         text: TextArgs,
