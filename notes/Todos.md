@@ -11,16 +11,6 @@ let mut terminal = Terminal::with_options(backend, TerminalOptions {
 })?;
 ```
 
-## - [x] Parametro bold opcional
+## - [ ] Ayuda en los flags
 
-Convertir el bold en un parametro opcional
-
-``` rs
-let style = Style::new()
-    .fg_color(Some(args.foreground.into()))
-    .effects(Effects::BOLD); // opcional
-```
-
-## - [x] Agregar desc al comando log
-
-La descrición del comando sale vacia
+Agregar help key a las flags en los #[args()] de los flags para mostrar la ayuda
