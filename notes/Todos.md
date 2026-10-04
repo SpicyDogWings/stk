@@ -11,6 +11,6 @@ let mut terminal = Terminal::with_options(backend, TerminalOptions {
 })?;
 ```
 
-## - [ ] Ayuda en los flags
+## - [x] Ayuda en los flags
 
 Agregar help key a las flags en los #[args()] de los flags para mostrar la ayuda
