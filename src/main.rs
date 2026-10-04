@@ -19,7 +19,7 @@ enum Commands {
         #[command(flatten)]
         text: TextArgs,
 
-        #[arg(short, long, value_enum, default_value_t = ColorVariant::Log)]
+        #[arg(short, long, value_enum, default_value_t = ColorVariant::Log, help = "Variante del log")]
         variant: ColorVariant
     }
 }
@@ -30,10 +30,10 @@ struct Args {
     #[command(flatten)]
     text: TextArgs,
 
-    #[arg(short, long, value_enum, default_value_t = StkColor::Green)]
+    #[arg(short, long, value_enum, default_value_t = StkColor::Green, help = "Color del texto de la terminal")]
     foreground: StkColor,
 
-    #[arg(short, long)]
+    #[arg(short, long, help = "Efecto bold en el texto de la terminal")]
     bold: bool,
 
     #[command(subcommand)]
