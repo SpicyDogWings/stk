@@ -21,6 +21,6 @@ let style = Style::new()
     .effects(Effects::BOLD); // opcional
 ```
 
-## - [ ] Agregar desc al comando log
+## - [x] Agregar desc al comando log
 
 La descrición del comando sale vacia
