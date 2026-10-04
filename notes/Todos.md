@@ -11,7 +11,7 @@ let mut terminal = Terminal::with_options(backend, TerminalOptions {
 })?;
 ```
 
-## - [ ] Parametro bold opcional
+## - [x] Parametro bold opcional
 
 Convertir el bold en un parametro opcional
 
