@@ -33,6 +33,9 @@ struct Args {
     #[arg(short, long, value_enum, default_value_t = StkColor::Green)]
     foreground: StkColor,
 
+    #[arg(short, long)]
+    bold: bool,
+
     #[command(subcommand)]
     command: Option<Commands>
 }
@@ -45,7 +48,7 @@ fn main() {
             print_log(text.text, variant);
         }
         None => {
-            print_text_inline(args.text.text, args.foreground);
+            print_text_inline(args.text.text, args.foreground, args.bold);
         }
     }
 }

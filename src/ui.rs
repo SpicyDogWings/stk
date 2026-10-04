@@ -5,10 +5,10 @@ use time::{
     macros::format_description
 };
 
-pub fn print_text_inline(text: Vec<String>, color: StkColor) {
+pub fn print_text_inline(text: Vec<String>, color: StkColor, bold: bool) {
     let style = Style::new()
-        .fg_color(Some(color.into()))
-        .effects(Effects::BOLD);    
+        .fg_color(Some(color.into()));
+    let style = if bold { style.effects(Effects::BOLD) } else { style };
     print!("{style}{}{style:#}", text.join(" "));
 }
 
