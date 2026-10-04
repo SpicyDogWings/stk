@@ -1,15 +1,11 @@
 mod color;
+mod ui;
 
 use clap::{ Parser, Subcommand, Args as ClapArgs };
-use anstyle::{ Color, Effects, Style};
 use color::{ StkColor, ColorVariant };
-use time::{
-    OffsetDateTime,
-    macros::format_description
+use ui::print_text_inline;
 
-};
-//use time::macros::format_description;
-
+use crate::ui::print_log;
 
 #[derive(ClapArgs, Debug)]
 struct TextArgs {
@@ -18,6 +14,7 @@ struct TextArgs {
 
 #[derive(Subcommand, Debug)]
 enum Commands {
+    #[command(name = "log", about = "Imprimir los logs de tu script para debugar")]
     Log {
         #[command(flatten)]
         text: TextArgs,
@@ -36,6 +33,9 @@ struct Args {
     #[arg(short, long, value_enum, default_value_t = StkColor::Green)]
     foreground: StkColor,
 
+    #[arg(short, long)]
+    bold: bool,
+
     #[command(subcommand)]
     command: Option<Commands>
 }
@@ -45,24 +45,10 @@ fn main() {
     let args = Args::parse();
     match args.command {
         Some(Commands::Log{ text, variant }) => {
-            let color: StkColor = variant.clone().into();
-            let color: Color = color.into();
-            let now = OffsetDateTime::now_local().unwrap_or_else(|_| OffsetDateTime::now_utc());
-            let time_fmt = format_description!("[hour]:[minute]:[second]");
-            let style = Style::new()  
-                .fg_color(Some(StkColor::Black.into()))
-                .bg_color(Some(color.into()));
-            let style2 = Style::new()
-                .fg_color(Some(StkColor::White.into()));
-            let style3 = Style::new()
-                .fg_color(Some(StkColor::BrightBlack.into()));
-            print!("{style} {} {style:#} {style3}{}{style3:#} {style2}{}{style2:#}", variant.label(), now.format(time_fmt).unwrap(), text.text.join(" "));
+            print_log(text.text, variant);
         }
         None => {
-            let style = Style::new()
-                .fg_color(Some(args.foreground.into()))
-                .effects(Effects::BOLD);
-            print!("{style}{}{style:#}", args.text.text.join(" "));
+            print_text_inline(args.text.text, args.foreground, args.bold);
         }
     }
 }
